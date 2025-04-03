@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="input-group">
+    <input placeholder="Filter" type="number" (input)="setFilter($event)"/>
+    /
+    <input placeholder="Numbers" type="number" (input)="setCount($event)"/>
+  </div>
+
+  <button (click)="addElements()">Add 15 elements</button>
+
+  <h3>FizzBuzz</h3>
+
+  <div class="list-container">
+    <div
+      *ngFor="let item of filteredArray | async; trackBy: trackById"
+      [ngClass]="{ 'red-bg': isEven(item) }"
+      class="list-item"
+    >
+      {{ item }}
+    </div>
+  </div>
+</div>
